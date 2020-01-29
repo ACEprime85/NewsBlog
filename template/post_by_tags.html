@@ -1,0 +1,26 @@
+
+{% block content %}    
+    <div class="content">
+        <div class="section-inner clearfix">        
+ 
+        {% for instance in object_list %}
+            <h3>
+                <a href="{% url 'post_detail' post.id %}">{{ instance.title|capfirst }}</a>
+            </h3>
+            <p class="post-info">
+                <span>Date: {{ instance.published_date|date:"d M y h:i a" }}</span> |
+                <span>Category : <a href="{% url 'post_list'%}">{{ instance.title }}</a></span> |
+                <span>Tag :
+                    {% for tag in instance.tags.all %}
+                        <a href="{% url 'post_by_tag'%}">{{ tag }}</a>
+                    {% empty %}
+                        None
+                    {% endfor %}
+                </span>
+            </p>
+        {% empty %}
+            <p>No posts exits</p>
+        {% endfor %}
+        </div>
+    </div>         
+{% endblock %}

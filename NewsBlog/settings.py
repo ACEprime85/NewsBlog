@@ -168,5 +168,4 @@ MESSAGE_LEVEL = message_constants.DEBUG
 ADMINS=[
     ('samuel', 'samuelokwu85@gmail.com')
 ]
-
 STATICFILES_STORAGE= 'whitenoise.django.GzipManifestStaticFileStorage'
